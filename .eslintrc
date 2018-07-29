@@ -1,0 +1,21 @@
+{
+  "extends": ["react-app"],
+  "plugins": ["prettier"],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "react/jsx-wrap-multilines": [
+      "error",
+      { "arrow": true, "return": true, "declaration": true }
+    ]
+  }
+}
