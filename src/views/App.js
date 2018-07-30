@@ -1,19 +1,15 @@
 import React, { Component } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
+import { Route } from 'react-router-dom'
 
-import theme from '../theme/'
-import Header from '../components/Header'
+import theme from 'theme/'
+import Header from 'components/Header'
+import Home from './Home'
+import About from './About'
 
 const Wrapper = styled.div`
   text-align: center;
   font-family: sans-serif;
-`
-
-const Intro = styled.p`
-  font-size: large;
-  code {
-    font-size: 1.3rem;
-  }
 `
 
 class App extends Component {
@@ -22,12 +18,9 @@ class App extends Component {
       <ThemeProvider theme={theme}>
         <Wrapper>
           <Header />
-          <Intro>
-            Bootstrapped with <code>create-react-app</code>.
-          </Intro>
-          <Intro>
-            Components styled with <code>styled-components</code>
-          </Intro>
+
+          <Route exact path="/" component={Home} />
+          <Route exact path="/about" component={About} />
         </Wrapper>
       </ThemeProvider>
     )
