@@ -11,11 +11,12 @@ import routes from './routes'
 import registerServiceWorker from './registerServiceWorker'
 
 const target = document.querySelector('#root')
+const basename = process.env.REACT_APP_DEPLOY_ENV === 'GH_PAGES' ? '/pho/' : '/'
 
 render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <App routes={routes} />
+      <App routes={routes} basename={basename} />
     </ConnectedRouter>
   </Provider>,
   target

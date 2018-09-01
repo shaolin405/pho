@@ -5,7 +5,11 @@ import { createBrowserHistory } from 'history'
 
 import rootReducer from './modules'
 
-export const history = createBrowserHistory()
+const basename = process.env.REACT_APP_DEPLOY_ENV === 'GH_PAGES' ? '/pho/' : '/'
+
+export const history = createBrowserHistory({
+  basename
+})
 
 const initialState = {}
 const enhancers = []

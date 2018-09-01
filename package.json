@@ -2,6 +2,7 @@
   "name": "pho",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://shaolin405.github.io/pho",
   "dependencies": {
     "connected-react-router": "^4.3.0",
     "gsap": "^2.0.2",
@@ -19,19 +20,19 @@
     "styled-system": "^3.0.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "REACT_APP_DEPLOY_ENV=lol react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "REACT_APP_DEPLOY_ENV=GH_PAGES npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "eslint-plugin-prettier": "^2.6.2",
+    "gh-pages": "^1.2.0",
     "prettier": "^1.14.0"
   },
   "babel": {
-    "presets": [
-      "react-app"
-    ]
+    "presets": ["react-app"]
   },
   "eslintConfig": {
     "extends": "react-app"

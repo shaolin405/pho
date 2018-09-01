@@ -27,7 +27,8 @@ export default [
     name: 'Projects',
     Component: Projects,
     path: {
-      path: '/project'
+      path: '/projects',
+      exact: true
     }
   },
   {

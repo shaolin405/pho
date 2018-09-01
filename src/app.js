@@ -22,7 +22,12 @@ class App extends Component {
     this.setState({ mounted: true })
   }
 
-  matchPath = path => matchPath(window.location.pathname, path)
+  matchPath = path => {
+    return matchPath(window.location.pathname, {
+      ...path,
+      path: this.props.basename + path.path.substr(1)
+    })
+  }
 
   preload = () => Promise.resolve()
 
@@ -40,12 +45,12 @@ class App extends Component {
   }
 
   renderRoute = () => {
-    const { routes } = this.props
+    const { routes, basename } = this.props
     return routes
       .filter(({ path }) => this.matchPath(path))
       .map(({ Component, key, name, multiple = false }) => {
         const slug = multiple
-          ? window.location.pathname.slice(`/${key}/`.length)
+          ? window.location.pathname.slice(`${basename}${key}/`.length)
           : key
         document.title = `Pho ⎯ ${name}`
         return <Component key={key} slug={slug} />
