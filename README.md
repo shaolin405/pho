@@ -6,6 +6,7 @@
 * 📏 prettier && eslint
 * 🏗 redux && redux-thunk
 * 🎢 react-router-dom && connected-react-router
+* ✨ react-transition-group && gsap
 * 💅 styled-components && styled-system
 
 ## Styleguide :

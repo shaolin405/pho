@@ -4,6 +4,6 @@ export default {
   breakpoints: ['640px', '1024px', '1280px'],
   colors: {
     white: '#f7f7f7',
-    purple: '#6e27c5'
+    black: '#222222'
   }
 }

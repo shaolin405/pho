@@ -3,19 +3,19 @@ import { TweenMax, Elastic, Expo } from 'gsap'
 
 import withTransition from 'helpers/withTransition'
 
-class Home extends Component {
-  transitionIn($section) {
+class ProjectSingle extends Component {
+  transitionIn = $section => {
     return new Promise(resolve => {
-      TweenMax.staggerFromTo(
-        $section.children,
+      TweenMax.fromTo(
+        $section.children[0],
         1,
         {
           autoAlpha: 0,
-          scale: 0.8
+          scaleX: 2
         },
         {
           autoAlpha: 1,
-          scale: 1,
+          scaleX: 1,
           ease: Elastic.easeOut,
           onComplete: resolve
         },
@@ -33,13 +33,13 @@ class Home extends Component {
     })
   }
   render() {
+    const { slug } = this.props
     return (
       <section className="page">
-        <h1>Home</h1>
-        <p>Hello World !</p>
+        <h1>Project {slug}</h1>
       </section>
     )
   }
 }
 
-export default withTransition(Home)
+export default withTransition(ProjectSingle)
